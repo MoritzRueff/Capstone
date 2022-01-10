@@ -1,11 +1,11 @@
 import styled from "styled-components"
-
+import '../App.css'
 export default function Footer() {
     return (
         <FooterContainer>
             <nav>
-                <FooterBar href="/">Home</FooterBar>
-                <FooterBar href="/Impressum">Impressum</FooterBar>
+                <button href="/">Home</button>
+                <button href="/Impressum">Impressum</button>
             </nav>
         </FooterContainer>
     )
@@ -13,17 +13,10 @@ export default function Footer() {
 
 /* styled-components */
 
-
 const FooterContainer = styled.footer`
-    display:grid;
-    justify-content: center;
     background-color: var(--secondary);
-    `
-const FooterBar = styled.button`
-    background-color: var(--primary);
-    color: var(--fourth);
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin: 0.5rem
+    display:flex;
+    flex-wrap: row;
+    flex-flow: wrap;
+    justify-content:center;
     `
