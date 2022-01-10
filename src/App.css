@@ -5,4 +5,11 @@
     --fourth: #0081a7;
     --warning: #f07167;
 }
-
+button {
+    background-color: var(--primary);
+    color: var(--fourth);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem
+}
