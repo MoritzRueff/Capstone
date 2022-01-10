@@ -7,12 +7,15 @@ import styled from 'styled-components'
 import SearchForDogs from './components/SearchForDog'
 import ButtonLogin from './components/ButtonLogin'
 
+// import CardDog from './components/CardDog'
+
 function App() {
   
   return (
     <div className="App">
     <Headline title="Idefix"/>
     <ButtonLogin />
+    {/* <CardDog /> */}
     <form>
     <SearchForDogs />
     </form>
