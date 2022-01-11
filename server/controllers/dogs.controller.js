@@ -34,8 +34,7 @@ const updateDog = async (req, res) => {
     location: req.body.location,
     compatibility: req.body.compatibility
   };
-
-  // TODO: add try catch around this operation
+  
   const result = await Dog.findByIdAndUpdate(dogId, DogData, {
     returnDocument: 'after',
   });

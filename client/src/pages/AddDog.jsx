@@ -1,9 +1,9 @@
-import Headline from "../components/Headline";
+import '../App.css'
+
 export default function AddDog() {
     return (
-      <>
-       <Headline />
+      <div>
         <h3>Add dog</h3>
-      </>
+        </div>
     );
   }

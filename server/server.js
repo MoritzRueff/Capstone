@@ -7,7 +7,7 @@ import DogRoutes from './routes/dogs.routes.js';
 
 dotenv.config();
 
-const serverPort = process.env.SERVER_PORT;
+const serverPort = process.env.PORT;
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbHost = process.env.DB_HOST;

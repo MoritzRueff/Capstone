@@ -1,8 +1,11 @@
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 
 function Headline() {
     return (
+    <NavLink to="/">
     <Head>Idefix</Head> 
+    </NavLink>
     )
     }
     export default Headline
