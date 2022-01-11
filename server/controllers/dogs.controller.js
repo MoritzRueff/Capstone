@@ -10,7 +10,7 @@ const postDog = async (req, res) => {
     name: req.body.name, 
     breed: req.body.breed,
     age: req.body.age,
-    female: req.body.female,
+    gender: req.body.gender,
     location: req.body.location,
     compatibility: req.body.compatibility
   });
@@ -30,7 +30,7 @@ const updateDog = async (req, res) => {
     name: req.body.name, 
     breed: req.body.breed,
     age: req.body.age,
-    female: req.body.female,
+    gender: req.body.gender,
     location: req.body.location,
     compatibility: req.body.compatibility
   };

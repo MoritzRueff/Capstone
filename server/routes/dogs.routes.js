@@ -5,7 +5,7 @@ import {
   getDogs,
   postDog,
   updateDog,
-} from '../../controllers/dogs.controller.js';
+} from '../controllers/dogs.controller.js';
 
 const router = express.Router();
 

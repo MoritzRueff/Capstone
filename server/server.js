@@ -7,14 +7,14 @@ import DogRoutes from './routes/dogs.routes.js';
 
 dotenv.config();
 
-const serverPort = process.env.SERVER_PORT || 4000;
-
+const serverPort = process.env.SERVER_PORT;
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbHost = process.env.DB_HOST;
 const dbName = process.env.DB_NAME;
 
 const connectionString = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/${dbName}?retryWrites=true&w=majority`;
+console.log(connectionString);
 
 mongoose.connect(connectionString);
 
@@ -27,6 +27,7 @@ server.get('/', (req, res) => {
   res.json({ status: 'Server is up and running' });
 });
 
-server.use('/api', [DogRoutes]);
+// server.use('/api', [DogRoutes]);
+server.use(DogRoutes);
 
 server.listen(serverPort, () => console.log('Server started'));

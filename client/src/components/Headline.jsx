@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
-function Headline(props) {
+function Headline() {
     return (
-    <Head>{props.title}</Head> 
+    <Head>Idefix</Head> 
     )
     }
     export default Headline
