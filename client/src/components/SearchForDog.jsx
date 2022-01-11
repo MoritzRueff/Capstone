@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export default function SearchForDogs () {
 
-   
     return (
         <Form>
             <label>
