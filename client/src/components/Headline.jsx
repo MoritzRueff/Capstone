@@ -16,11 +16,12 @@ function Headline() {
 
 const Head = styled.header`
     color: var(--primary);
-    background-color: var(--secondary);
+    background-color: var(--secondary);opacity:0.8;
     display: flex;
     justify-content: center;
+    padding: 0.2rem;
     `
  const IdefixImg = styled.img`
     width: 4rem;
-    padding-right: 1rem;
+    padding-right: 2.5rem;
 `
