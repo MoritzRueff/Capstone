@@ -4,8 +4,8 @@ export default function SearchForDogs () {
 
     return (
         <Form>
-            <label>
-            <input type="text" name="name" placeholder="Search for specific dog"/>
+            <label>Search for your dog: 
+            <input type="text" name="name" placeholder="Enter dog name"/>
             </label>
         </Form>      
     )
@@ -15,13 +15,14 @@ export default function SearchForDogs () {
 
 const Form = styled.form`
     display: grid;
-    justify-content: center;
+    justify-content: space-evenly;
     input {
     color:black;
     padding: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     background-color: var(--secondary);
     border:none;
     border-radius: 0.5rem;
+
     }
 `
