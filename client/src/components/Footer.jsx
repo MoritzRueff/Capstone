@@ -12,7 +12,7 @@ export default function Footer() {
 /* styled-components */
 
 const FooterContainer = styled.footer`
-    background-color: var(--secondary);
+    background-color: var(--secondary);opacity:0.8;
     display: flex;
     justify-content: space-evenly;
     position: fixed;

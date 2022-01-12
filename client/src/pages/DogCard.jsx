@@ -8,6 +8,18 @@ export default function DogCard () {
         {/* <DogImage /> */}
         <h3>Bello</h3>
         <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        <p>All infos about the dog</p>
+        
         
         </Container>
     );
