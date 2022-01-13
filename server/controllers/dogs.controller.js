@@ -1,18 +1,24 @@
-import Dog from '../models/dog.model.js';
+import Dog from "../models/dog.model.js";
 
-const getDogs = async (req, res) => {
-  const dogs = await Dog.find();
-  res.json(dogs);
+const getAllDogs = async (req, res) => {
+  const dog = await Dog.find();
+
+  res.json(dog);
+};
+
+const getDog = async (req, res) => {
+  const dogId = req.params.dogId;
+  const foundDog = await Dog.findById(dogId);
+  res.json(foundDog);
 };
 
 const postDog = async (req, res) => {
   const dog = new Dog({
-    name: req.body.name, 
+    name: req.body.name,
     breed: req.body.breed,
     age: req.body.age,
     gender: req.body.gender,
     location: req.body.location,
-    compatibility: req.body.compatibility
   });
 
   try {
@@ -27,16 +33,16 @@ const updateDog = async (req, res) => {
   const dogId = req.params.dogId;
 
   const DogData = {
-    name: req.body.name, 
+    name: req.body.name,
     breed: req.body.breed,
     age: req.body.age,
     gender: req.body.gender,
+    dog_image: req.body.dog_image,
     location: req.body.location,
-    compatibility: req.body.compatibility
   };
-  
+
   const result = await Dog.findByIdAndUpdate(dogId, DogData, {
-    returnDocument: 'after',
+    returnDocument: "after",
   });
 
   res.json(result);
@@ -53,4 +59,4 @@ const deleteDog = async (req, res) => {
   }
 };
 
-export { deleteDog, getDogs, postDog, updateDog};
+export { getAllDogs, deleteDog, getDog, postDog, updateDog };

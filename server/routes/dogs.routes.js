@@ -1,17 +1,19 @@
-import express from 'express';
+import express from "express";
 
 import {
   deleteDog,
-  getDogs,
+  getDog,
+  getAllDogs,
   postDog,
   updateDog,
-} from '../controllers/dogs.controller.js';
+} from "../controllers/dogs.controller.js";
 
 const router = express.Router();
 
-router.get('/dogs', getDogs);
-router.post('/dogs', postDog);
-router.put('/dogs/:dogId', updateDog);
-router.delete('/dogs/:dogId', deleteDog);
+router.get("/dogs", getAllDogs);
+router.get("/dog/:dogId", getDog);
+router.post("/dogs", postDog);
+router.put("/dogs/:dogId", updateDog);
+router.delete("/dogs/:dogId", deleteDog);
 
 export default router;
