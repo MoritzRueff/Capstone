@@ -1,33 +1,34 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import dotenv from 'dotenv';
-
-import DogRoutes from './routes/dogs.routes.js';
-
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
+import DogRoutes from "./routes/dogs.routes.js";
 dotenv.config();
 
-const serverPort = process.env.PORT;
+const serverPort = process.env.PORT || 4000;
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbHost = process.env.DB_HOST;
 const dbName = process.env.DB_NAME;
 
 const connectionString = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/${dbName}?retryWrites=true&w=majority`;
-console.log(connectionString);
 
 mongoose.connect(connectionString);
 
+const __dirname = process.cwd();
 const server = express();
 
 server.use(cors());
 server.use(express.json());
 
-server.get('/', (req, res) => {
-  res.json({ status: 'Server is up and running' });
+server.use("/api", DogRoutes);
+server.use(express.static(path.join(__dirname, "../client/dist")));
+
+server.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
 });
 
-// server.use('/api', [DogRoutes]);
-server.use(DogRoutes);
-
-server.listen(serverPort, () => console.log('Server started'));
+server.listen(serverPort, () =>
+  console.log(`Server Obelix is up and running on ${serverPort}`)
+);
