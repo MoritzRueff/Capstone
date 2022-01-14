@@ -6,19 +6,43 @@ import Impressum from './pages/Impressum'
 import ShelterRegister from './pages/ShelterRegister'
 import Footer from './components/Footer'
 import Headline from './components/Headline'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
+
+// import { loadFromLocal, saveToLocal} from './lib/localStorage.js'
 
 
 function App() {
+  
+  const [dogs, setDogs] = useState([])
+
+  useEffect(() => {
+    async function fetchDogs() {
+      try {
+        const response = await fetch('/api/dogs')
+        const DogOfApi = await response.json()
+        setDogs(DogOfApi)
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    fetchDogs()
+  }, [])
+  console.log(dogs)
 
   return (
     <div className="App">
       <Headline title="Idefix"/>
+      {dogs.map((dog, index) => (
+          <DogCard
+            key={index}
+            dog={dog}
+           />
+        ))} 
      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/AddDog" element={<AddDog />}/> 
-        <Route path="/DogCard" element={<DogCard />} />
+        <Route path="/DogCard" element={<DogCard dogs={dogs}/>} />
         <Route path="/ShelterRegister" element={<ShelterRegister />} />
         <Route path="/Impressum" element={<Impressum />} />
       </Routes>
