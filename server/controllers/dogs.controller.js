@@ -14,12 +14,12 @@ const getDog = async (req, res) => {
 
 const postDog = async (req, res) => {
   const dog = new Dog({
-    dog_name: req.body.dog_name,
+    name: req.body.name,
     breed: req.body.breed,
     age: req.body.age,
     gender: req.body.gender,
     location: req.body.location,
-    dog_image: req.body.dog_image,
+    image: req.body.image,
   });
 
   try {
@@ -34,12 +34,12 @@ const updateDog = async (req, res) => {
   const dogId = req.params.dogId;
 
   const DogData = {
-    dog_name: req.body.dog_name,
+    name: req.body.name,
     breed: req.body.breed,
     age: req.body.age,
     gender: req.body.gender,
     location: req.body.location,
-    dog_image: req.body.dog_image,
+    image: req.body.image,
   };
 
   const result = await Dog.findByIdAndUpdate(dogId, DogData, {

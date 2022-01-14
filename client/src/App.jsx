@@ -9,13 +9,13 @@ import Headline from './components/Headline'
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 
-// import { loadFromLocal, saveToLocal} from './lib/localStorage.js'
+import { loadFromLocal, saveToLocal} from './lib/localStorage.js'
 
 
 function App() {
-  
-  const [dogs, setDogs] = useState([])
 
+  const [dogs, setDogs] = useState( loadFromLocal('_DOGS'))
+  console.log(dogs)
   useEffect(() => {
     async function fetchDogs() {
       try {
@@ -28,17 +28,14 @@ function App() {
     }
     fetchDogs()
   }, [])
-  console.log(dogs)
+  
+  useEffect(() => {
+    saveToLocal('_DOGS', dogs)
+  }, [])
 
   return (
     <div className="App">
       <Headline title="Idefix"/>
-      {dogs.map((dog, index) => (
-          <DogCard
-            key={index}
-            dog={dog}
-           />
-        ))} 
      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/AddDog" element={<AddDog />}/> 

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import '../App.css'
 
-export default function DogCard ( {dog} ) {
+export default function DogCard ( { dogs} ) {
     return (
       <>
-     <h2>{dog.name}</h2>
+     <h2>{dogs.name}</h2>
       </>
     );
   }
