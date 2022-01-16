@@ -1,6 +1,5 @@
 import "../App.css";
 import SearchForDogs from "../components/SearchForDog";
-
 import DogCard from "./DogCard";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -9,7 +8,7 @@ export default function Home({ dogs }) {
     <div>
       <Container>
         <NavLink to="/AddDog" style={{ textDecoration: "none" }}>
-          <Para> Add Doggo</Para>
+          <Para> Add Dog</Para>
         </NavLink>
         <NavLink to="/ShelterRegister" style={{ textDecoration: "none" }}>
           <Para>Register as shelter / Login</Para>
