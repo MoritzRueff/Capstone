@@ -1,6 +1,6 @@
 import Dog from "../models/dog.model.js";
 
-const getAllDogs = async (req, res) => {
+const getAllDog = async (req, res) => {
   const dog = await Dog.find();
 
   res.json(dog);
@@ -19,6 +19,7 @@ const postDog = async (req, res) => {
     age: req.body.age,
     gender: req.body.gender,
     location: req.body.location,
+    image: req.body.image,
   });
 
   try {
@@ -37,8 +38,8 @@ const updateDog = async (req, res) => {
     breed: req.body.breed,
     age: req.body.age,
     gender: req.body.gender,
-    dog_image: req.body.dog_image,
     location: req.body.location,
+    image: req.body.image,
   };
 
   const result = await Dog.findByIdAndUpdate(dogId, DogData, {
@@ -59,4 +60,4 @@ const deleteDog = async (req, res) => {
   }
 };
 
-export { getAllDogs, deleteDog, getDog, postDog, updateDog };
+export { getAllDog, deleteDog, getDog, postDog, updateDog };

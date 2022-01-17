@@ -3,14 +3,14 @@ import express from "express";
 import {
   deleteDog,
   getDog,
-  getAllDogs,
+  getAllDog,
   postDog,
   updateDog,
 } from "../controllers/dogs.controller.js";
 
 const router = express.Router();
 
-router.get("/dogs", getAllDogs);
+router.get("/dogs", getAllDog);
 router.get("/dog/:dogId", getDog);
 router.post("/dogs", postDog);
 router.put("/dogs/:dogId", updateDog);
