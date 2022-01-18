@@ -11,7 +11,7 @@ import {
 const router = express.Router();
 
 router.get("/dogs", getAllDog);
-router.get("/dog/:dogId", getDog);
+router.get("/dogs/:dogId", getDog);
 router.post("/dogs", postDog);
 router.put("/dogs/:dogId", updateDog);
 router.delete("/dogs/:dogId", deleteDog);
