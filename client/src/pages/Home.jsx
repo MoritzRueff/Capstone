@@ -1,8 +1,10 @@
 import "../App.css";
 import SearchForDogs from "../components/SearchForDog";
-import DogCard from "./DogCard";
+import DogCard from "../components/DogCard";
+import FilterDogs from "../components/Filter";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+
 export default function Home({ dogs }) {
   return (
     <div>
@@ -14,14 +16,6 @@ export default function Home({ dogs }) {
           <Para>Register as shelter / Login</Para>
         </NavLink>
       </Container>
-      {/* <ButtonConti><NavLink to="/AddDog">
-          <button primary as={NavLink}>Add Dog</button>
-        </NavLink>
-        <NavLink to="/ShelterRegister">
-          <button primary as={NavLink}>Register as shelter / Login</button>
-        </NavLink>
-        </ButtonConti> */}
-      <SearchForDogs />
       <DogCard dogs={dogs} />
     </div>
   );

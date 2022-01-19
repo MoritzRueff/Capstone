@@ -25,6 +25,7 @@
     "express": "^4.17.2",
     "mongoose": "^6.1.6",
     "npm-dist": "^1.0.8",
+    "react-multi-select-component": "^4.1.15",
     "react-router-dom": "^6.2.1",
     "vite-react-jsx": "^1.1.2"
   },

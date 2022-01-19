@@ -1,14 +1,49 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from "styled-components";
+import "../App.css";
+import { NavLink } from "react-router-dom";
+import SingleDogCard from "../pages/SingleDogCard";
 
-export default function DogCard({ key, dog_name, breed, age, gender, location, dog_image }) {
+export default function DogCard({ dogs }) {
   return (
     <div>
-      {/* <DogImage src={dog_image} /> */}
-      <DogData>{dog_name}</DogData>
+      {dogs?.map((dog, key) => (
+        <Container key={dog._id}>
+          <h2>{dog.name}</h2>
+          <Image src={`${dog.image}`} />
+          <p>Breed: {dog.breed}</p>
+          <p>Age: {dog.age}</p>
+          <p>Gender: {dog.gender}</p>
+          <NavLink
+            to={`/dogs/${dog._id}`}
+            style={{ textDecoration: "none" }}
+            element={<SingleDogCard />}
+          >
+            <Info>More Infos</Info>
+          </NavLink>
+        </Container>
+      ))}
     </div>
-  )
+  );
 }
 
-const DogData = styled.div`
-    background-color: black`
+/* styled-components */
+
+const Container = styled.div`
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 1rem;
+`;
+const Info = styled.button`
+  color: var(--secondary);
+  background-color: var(--primary);
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 50px;
+`;
+
+const Image = styled.img`
+  width: 250px;
+  border-radius: 5px;
+`;

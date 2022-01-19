@@ -1,6 +1,6 @@
 import "./App.css";
 import AddDog from "./pages/AddDog";
-import DogCard from "./pages/DogCard";
+import DogCard from "./components/DogCard";
 import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import ShelterRegister from "./pages/ShelterRegister";
@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import Headline from "./components/Headline";
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import SearchForDogs from "./components/SearchForDog";
+import SingleDogCard from "./pages/SingleDogCard";
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -31,9 +33,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home dogs={dogs} />} />
         <Route path="/AddDog" element={<AddDog />} />
-        <Route path="/DogCard" element={<DogCard dogs={dogs} />} />
+        <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/ShelterRegister" element={<ShelterRegister />} />
         <Route path="/Impressum" element={<Impressum />} />
+        <Route path="/SearchForDogs" element={<SearchForDogs dogs={dogs} />} />
       </Routes>
       <Footer />
     </div>
