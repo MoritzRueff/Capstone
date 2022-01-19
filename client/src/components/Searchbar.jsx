@@ -1,19 +1,18 @@
 import { useState } from "react";
 import styled from "styled-components";
-import SinSingleDogCardgleDog from "../pages/SingleDogCard";
 
-export default function SearchForDogs({ dogs }) {
+export default function Searchbar({ dogs }) {
   const [findDog, setFindDog] = useState("");
-  const [isBtnActive, setIsBtnActive] = useState(false);
+  const [BttActive, setBttActive] = useState(false);
 
   return (
     <Container>
-      <button
-        onClick={() => setIsBtnActive(!isBtnActive)}
-        className={isBtnActive ? "inactive" : "active"}
+      <SearchButton
+        onClick={() => setBttActive(!BttActive)}
+        className={BttActive ? "inactive" : "active"}
       >
         Search for dog
-      </button>
+      </SearchButton>
       <div>
         <input
           className="searchinput"
@@ -25,19 +24,19 @@ export default function SearchForDogs({ dogs }) {
           onChange={(event) => setFindDog(event.target.value)}
         />
       </div>
-      <div>
-        {isBtnActive
+      <ul>
+        {BttActive
           ? dogs
               .filter((item) =>
                 item.name.toLowerCase().includes(findDog.toLowerCase())
               )
               .map((dog) => (
                 <div key={dog._id}>
-                  <SingleDogCard name={dog.name} image={dog.image} />
+                  <SingleDogCard />
                 </div>
               ))
           : true}
-      </div>
+      </ul>
     </Container>
   );
 }
@@ -47,12 +46,23 @@ export default function SearchForDogs({ dogs }) {
 const Container = styled.div`
   display: grid;
   justify-content: space-evenly;
+  border: 1px solid var(--third);
+  border-radius: 5px;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 1rem;
   input {
     color: black;
     padding: 0.5rem;
-    margin-bottom: 1rem;
     background-color: var(--secondary);
-    border: none;
+    border: 1px solid black;
     border-radius: 0.5rem;
   }
+`;
+
+const SearchButton = styled.button`
+  background-color: var(--third);
+  border: 1px solid black;
+  color: black;
+  font-size: medium;
 `;

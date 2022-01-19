@@ -1,21 +1,17 @@
 :root {
-  --primary: #fed9b7;
-  --secondary: #00afb9;
-  --third: #fdfcdc;
-  --fourth: #0081a7;
-  --fifth: #e9bcb7;
-  --warning: #f07167;
+  --primary: #f3dfc1;
+  --secondary: #c1666b;
+  --third: #368f8b;
 }
 button {
-  background-color: var(--primary);
-  color: var(--fourth);
-  border: none;
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin: 0.5rem;
 }
 body {
   text-align: center;
-  background-color: #e9bcb7;
-  /* background-image: linear-gradient(to bottom right, var(--third), var(--warning)); */
+  background-color: var(--primary);
+}
+h2 {
+  text-align: center;
 }

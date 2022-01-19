@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Headline from "./components/Headline";
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import SearchForDogs from "./components/SearchForDog";
+import Searchbar from "./components/Searchbar";
 import SingleDogCard from "./pages/SingleDogCard";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/ShelterRegister" element={<ShelterRegister />} />
         <Route path="/Impressum" element={<Impressum />} />
-        <Route path="/SearchForDogs" element={<SearchForDogs dogs={dogs} />} />
+        <Route path="/Searchbar" element={<Searchbar dogs={dogs} />} />
       </Routes>
       <Footer />
     </div>

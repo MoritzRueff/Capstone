@@ -29,21 +29,19 @@ export default function DogCard({ dogs }) {
 /* styled-components */
 
 const Container = styled.div`
-  border: 1px solid var(--primary);
+  border: 1px solid var(--third);
   border-radius: 5px;
   width: 85%;
   margin: auto;
   margin-bottom: 1rem;
+  justify-items: center;
 `;
 const Info = styled.button`
-  color: var(--secondary);
-  background-color: var(--primary);
+  background-color: var(--third);
   border: 1px solid black;
-  border-radius: 15px;
-  width: 50px;
+  width: 5rem;
 `;
-
 const Image = styled.img`
   width: 250px;
-  border-radius: 5px;
+  border-radius: 15px;
 `;

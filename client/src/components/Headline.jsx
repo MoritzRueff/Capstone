@@ -17,9 +17,8 @@ export default Headline;
 /* styled-components */
 
 const Head = styled.header`
-  color: var(--fifth);
+  color: var(--third);
   background-color: var(--secondary);
-  opacity: 0.8;
   display: flex;
   justify-content: center;
   padding: 0.2rem;

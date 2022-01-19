@@ -1,5 +1,5 @@
 import "../App.css";
-import SearchForDogs from "../components/SearchForDog";
+import Searchbar from "../components/Searchbar";
 import DogCard from "../components/DogCard";
 import FilterDogs from "../components/Filter";
 import { NavLink } from "react-router-dom";
@@ -16,6 +16,7 @@ export default function Home({ dogs }) {
           <Para>Register as shelter / Login</Para>
         </NavLink>
       </Container>
+      <Searchbar />
       <DogCard dogs={dogs} />
     </div>
   );
@@ -24,15 +25,14 @@ export default function Home({ dogs }) {
 /* styled-components */
 
 const Container = styled.div`
-  padding: 0.5rem;
   display: flex;
   justify-content: space-evenly;
 `;
 
 const Para = styled.p`
-  color: var(--secondary);
-  background-color: var(--primary);
+  color: black;
+  background-color: var(--third);
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0.5rem;
 `;
