@@ -1,17 +1,12 @@
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import DogCard from "../components/DogCard";
-import { ReactDOM } from "react";
-import { ContactUs } from "../components/ContactUs.js";
-
+import ContactDog from "../components/ContactDog";
+import "../App.css";
 export default function SingleDogCard({ dogs }) {
   const { dogId } = useParams();
 
-  // console.log(dogId);
-
   const oneDog = dogs.find((dog) => dog._id === dogId);
-  // console.log(oneDog);
 
   return (
     <div>
@@ -26,12 +21,7 @@ export default function SingleDogCard({ dogs }) {
           quibusdam possimus neque ipsam deleniti ipsa. Pariatur, magni.
         </p>
         <p>
-          <form>
-            <label>Apply for me: </label>
-            <input type="teemailxt" name="user_email" placeholder="E-Mail" />
-            <label>Message</label>
-            <InputButton type="submit" value="Send" />
-          </form>
+          <ContactDog />
         </p>
       </Wrapper>
     </div>
@@ -46,18 +36,10 @@ const Wrapper = styled.div`
   margin: auto;
   margin-bottom: 1rem;
   justify-items: center;
+  background-color: var(--fourth);
 `;
 const Image = styled.img`
   width: 250px;
   border-radius: 5px;
-  margin-top: 0.5rem;
-`;
-
-const InputButton = styled.input`
-  background-color: var(--third);
-  color: white;
-  border-radius: 5px;
-  border: none;
-  padding: 0.5rem;
   margin-top: 0.5rem;
 `;

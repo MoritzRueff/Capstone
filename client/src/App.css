@@ -1,7 +1,8 @@
 :root {
-  --primary: #f3dfc1;
-  --secondary: #c1666b;
-  --third: #368f8b;
+  --primary: #f1f7ed;
+  --secondary: #243e36;
+  --third: #c2a83e;
+  --fourth: #7ca982;
 }
 button {
   border-radius: 0.5rem;
@@ -10,8 +11,13 @@ button {
 }
 body {
   text-align: center;
-  background-color: var(--primary);
 }
 h2 {
   text-align: center;
+}
+
+@font-face {
+  font-family: "ObelixPro";
+  src: local("ObelixPro"), url("./fonts/obelixpro-cyr.ttf") format("truetype");
+  font-weight: bold;
 }

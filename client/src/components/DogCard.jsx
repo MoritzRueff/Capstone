@@ -35,6 +35,7 @@ const Container = styled.div`
   margin: auto;
   margin-bottom: 1rem;
   justify-items: center;
+  background-color: var(--fourth);
 `;
 const Info = styled.button`
   background-color: var(--third);

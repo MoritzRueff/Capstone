@@ -52,7 +52,7 @@ const Container = styled.div`
   margin: auto;
   margin-bottom: 1rem;
   input {
-    color: black;
+    color: white;
     padding: 0.5rem;
     background-color: var(--secondary);
     border: 1px solid black;

@@ -22,6 +22,7 @@ const Head = styled.header`
   display: flex;
   justify-content: center;
   padding: 0.2rem;
+  font-family: "ObelixPro";
 `;
 const IdefixImg = styled.img`
   width: 4rem;
