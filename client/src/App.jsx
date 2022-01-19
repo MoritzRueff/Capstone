@@ -9,11 +9,8 @@ import Headline from "./components/Headline";
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { loadFromLocal, saveToLocal } from "./lib/localStorage.js";
-
 function App() {
-  const [dogs, setDogs] = useState(loadFromLocal("_DOGS") ?? []);
-
+  const [dogs, setDogs] = useState([]);
   console.log(dogs);
   useEffect(() => {
     async function fetchDogs() {
@@ -27,10 +24,6 @@ function App() {
     }
     fetchDogs();
   }, []);
-
-  useEffect(() => {
-    saveToLocal("_DOGS", dogs);
-  }, [dogs]);
 
   return (
     <div className="App">

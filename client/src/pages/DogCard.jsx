@@ -1,33 +1,43 @@
 import styled from "styled-components";
 import "../App.css";
+import { NavLink } from "react-router-dom";
 
 export default function DogCard({ dogs }) {
-  console.log(dogs);
   return (
     <div>
       {dogs?.map((dog, key) => (
-        <div key={dog._id}>
-          <p>{dog.name}</p>
-        </div>
+        <Container key={dog._id}>
+          <h2>{dog.name}</h2>
+          <Image src={`${dog.image}`} />
+          <p>Breed: {dog.breed}</p>
+          <p>Age: {dog.age}</p>
+          <p>Gender: {dog.gender}</p>
+          <NavLink to="DogCard/dog._id" style={{ textDecoration: "none" }}>
+            <Info>More Infos</Info>
+          </NavLink>
+        </Container>
       ))}
     </div>
   );
 }
+const Container = styled.div`
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 1rem;
+`;
+const Info = styled.button`
+  color: var(--secondary);
+  background-color: var(--primary);
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 50px;
+`;
 
-/* styled-components */
+const Image = styled.img`
+  width: 250px;
+  border-radius: 5px;
+`;
 
-/* const Container = styled.div`
-    border: 1px solid var(--primary);
-    border-radius: 5px;
-    width: 85%;
-    margin: auto;
-    margin-bottom: 1rem;
-  ` */
-/* const DogData = styled.div`
-   color: purple,
-   background-color: yellow, 
-  `  */
-/* const DogImage = styled.p`
-  border-radius: 100px;
-  justify-self: center;
-  ` */
+// <img src={`/img/${dog.image.src}.jpg`} width="50" />
