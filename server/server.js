@@ -18,16 +18,17 @@ const connectionString = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/${dbNa
 mongoose.connect(connectionString);
 
 const __dirname = process.cwd();
+console.log(__dirname);
 const server = express();
 
 server.use(cors());
 server.use(express.json());
 
 server.use("/api", [DogRoutes]);
-server.use(express.static(path.join(__dirname, "../client/dist")));
+server.use(express.static(path.join(__dirname, "./client/dist")));
 
 server.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
+  res.sendFile(path.join(__dirname, "./client/dist", "index.html"));
 });
 
 server.listen(serverPort, () =>
