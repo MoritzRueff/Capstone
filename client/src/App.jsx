@@ -36,7 +36,7 @@ function App() {
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/ShelterRegister" element={<ShelterRegister />} />
         <Route path="/Impressum" element={<Impressum />} />
-        <Route path="/Searchbar" element={<Searchbar dogs={dogs} />} />
+        {/* <Route path="/Searchbar" element={<Searchbar dogs={dogs} />} /> */}
       </Routes>
       <Footer />
     </div>

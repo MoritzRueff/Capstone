@@ -1,15 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
+import SingleDogCard from "../pages/SingleDogCard";
 
 export default function Searchbar({ dogs }) {
   const [findDog, setFindDog] = useState("");
-  const [BttActive, setBttActive] = useState(false);
+  const [BtnActive, setBtnActive] = useState(false);
 
   return (
     <Container>
       <SearchButton
-        onClick={() => setBttActive(!BttActive)}
-        className={BttActive ? "inactive" : "active"}
+        onClick={() => setBtnActive(!BtnActive)}
+        className={BtnActive ? "inactive" : "active"}
       >
         Search for dog
       </SearchButton>
@@ -25,13 +26,13 @@ export default function Searchbar({ dogs }) {
         />
       </div>
       <ul>
-        {BttActive
+        {BtnActive
           ? dogs
               .filter((item) =>
                 item.name.toLowerCase().includes(findDog.toLowerCase())
               )
-              .map((dog) => (
-                <div key={dog._id}>
+              .map((dogs) => (
+                <div key={dogs._id}>
                   <SingleDogCard />
                 </div>
               ))
