@@ -1,15 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
-import SingleDogCard from "../pages/SingleDogCard";
 
-export default function Searchbar({ dogs }) {
+export default function Searchbar({ dogs, onFilter }) {
   const [findDog, setFindDog] = useState("");
   const [BtnActive, setBtnActive] = useState(false);
-
+  function handleClick() {
+    onFilter(findDog);
+  }
   return (
     <Container>
       <SearchButton
-        onClick={() => setBtnActive(!BtnActive)}
+        onClick={handleClick}
         className={BtnActive ? "inactive" : "active"}
       >
         Search for dog
@@ -25,19 +26,6 @@ export default function Searchbar({ dogs }) {
           onChange={(event) => setFindDog(event.target.value)}
         />
       </div>
-      <ul>
-        {BtnActive
-          ? dogs
-              .filter((item) =>
-                item.name.toLowerCase().includes(findDog.toLowerCase())
-              )
-              .map((dogs) => (
-                <div key={dogs._id}>
-                  <SingleDogCard />
-                </div>
-              ))
-          : true}
-      </ul>
     </Container>
   );
 }

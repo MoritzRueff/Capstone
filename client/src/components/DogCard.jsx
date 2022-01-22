@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import "../App.css";
 import { NavLink } from "react-router-dom";
-import SingleDogCard from "../pages/SingleDogCard";
 
 export default function DogCard({ dogs }) {
   return (
@@ -13,11 +12,7 @@ export default function DogCard({ dogs }) {
           <p>Breed: {dog.breed}</p>
           <p>Age: {dog.age}</p>
           <p>Gender: {dog.gender}</p>
-          <NavLink
-            to={`/dogs/${dog._id}`}
-            style={{ textDecoration: "none" }}
-            element={<SingleDogCard />}
-          >
+          <NavLink to={`/dogs/${dog._id}`} style={{ textDecoration: "none" }}>
             <Info>More Infos</Info>
           </NavLink>
         </Container>

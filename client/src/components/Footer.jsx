@@ -29,5 +29,5 @@ const Para = styled.p`
   border: 1px solid black;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  color: black;
+  color: #000000;
 `;
