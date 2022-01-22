@@ -1,5 +1,5 @@
 :root {
-  --primary: #f1f7ed;
+  --primary: rgb(241, 247, 237);
   --secondary: #243e36;
   --third: #c2a83e;
   --fourth: #7ca982;
@@ -11,6 +11,7 @@ button {
 }
 body {
   text-align: center;
+  background-color: #b9cfd4;
 }
 h2 {
   text-align: center;
@@ -21,3 +22,4 @@ h2 {
   src: local("ObelixPro"), url("./fonts/obelixpro-cyr.ttf") format("truetype");
   font-weight: bold;
 }
+/* #243e36 */

@@ -10,10 +10,10 @@ function Headline() {
           <NavLink to="/AddDog" style={{ textDecoration: "none" }}>
             <Para> Add Dog</Para>
           </NavLink>
-          <IdefixImg src={logo} alt="Logo" />
-          <h1>Idefix</h1>
+          {/* <IdefixImg src={logo} alt="Logo" /> */}
+          <Head1>Idefix</Head1>
           <NavLink to="/ShelterRegister" style={{ textDecoration: "none" }}>
-            <Para>Register as shelter / Login</Para>
+            <Para>Login </Para>
           </NavLink>
         </Container>
       </Head>
@@ -27,24 +27,27 @@ export default Headline;
 const Head = styled.header`
   color: var(--third);
   background-color: var(--secondary);
-  display: flex;
-  justify-content: center;
   padding: 0.2rem;
-  font-family: "ObelixPro";
 `;
+
 const IdefixImg = styled.img`
-  width: 4rem;
-  padding-right: 2.5rem;
+  width: 2.5rem;
+  padding-right: 2rem;
 `;
 const Container = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 `;
-
 const Para = styled.p`
   color: black;
   background-color: var(--third);
-  border: 1px solid black;
   border-radius: 5px;
   padding: 0.5rem;
+  font-size: 10px;
+  font-family: "ObelixPro";
+`;
+
+const Head1 = styled.h1`
+  font-size: 15px;
+  font-family: "ObelixPro";
 `;

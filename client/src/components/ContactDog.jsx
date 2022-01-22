@@ -40,8 +40,6 @@ const ContactDog = () => {
           name="user_email"
           placeholder="Email…"
           required
-          icon="mail"
-          iconPosition="left"
         />
         <Form.Field
           id="form-input-control-last-name"
@@ -50,8 +48,6 @@ const ContactDog = () => {
           name="user_name"
           placeholder="Name…"
           required
-          icon="user circle"
-          iconPosition="left"
         />
         <Form.Field
           id="form-textarea-control-opinion"
@@ -69,16 +65,9 @@ const ContactDog = () => {
   );
 };
 export default ContactDog;
-const Container = styled.div`
-  border: 1px solid var(--third);
-  border-radius: 5px;
-  width: 85%;
-  margin: auto;
-  margin-bottom: 1rem;
-  display: grid;
-  justify-items: center;
-  background-color: var(--fourth);
-`;
+
+/* styled-components */
+
 const ButtonB = styled.button`
   background-color: var(--third);
   border: 1px solid black;

@@ -30,4 +30,6 @@ const Para = styled.p`
   border-radius: 0.5rem;
   padding: 0.5rem;
   color: #000000;
+  font-family: "ObelixPro";
+  font-size: 10px;
 `;

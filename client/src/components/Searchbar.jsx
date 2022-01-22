@@ -41,17 +41,18 @@ const Container = styled.div`
   margin: auto;
   margin-bottom: 1rem;
   input {
-    color: white;
+    color: var(--third);
     padding: 0.5rem;
     background-color: var(--secondary);
-    border: 1px solid black;
-    border-radius: 0.5rem;
+    border: 0.5px solid black;
+    border-radius: 5px;
   }
 `;
 
 const SearchButton = styled.button`
   background-color: var(--third);
   border: 1px solid black;
+  border-radius: 5px;
   color: black;
   font-size: medium;
 `;
