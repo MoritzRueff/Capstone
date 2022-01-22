@@ -1,38 +1,50 @@
 import "../App.css";
-import SearchForDogs from "../components/SearchForDog";
-import DogCard from "../components/DogCard";
-import FilterDogs from "../components/Filter";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+
+import DogCard from "../components/DogCard";
+import Searchbar from "../components/Searchbar";
 import styled from "styled-components";
 
 export default function Home({ dogs }) {
+  const [filterDogs, setFilterDogs] = useState([]);
+  console.log(filterDogs);
+  function searchDogs(findDog) {
+    setFilterDogs(
+      dogs.filter((item) =>
+        item.name.toLowerCase().includes(findDog.toLowerCase())
+      )
+    );
+  }
   return (
     <div>
-      <Container>
+      {/* <Container>
         <NavLink to="/AddDog" style={{ textDecoration: "none" }}>
           <Para> Add Dog</Para>
         </NavLink>
         <NavLink to="/ShelterRegister" style={{ textDecoration: "none" }}>
           <Para>Register as shelter / Login</Para>
         </NavLink>
-      </Container>
+      </Container> */}
+      <Searchbar dogs={dogs} onFilter={searchDogs} />
       <DogCard dogs={dogs} />
     </div>
   );
 }
 
+// DogCard anzeigen wenn filterDogs leer ist, sont nur filter dogs
+
 /* styled-components */
 
 const Container = styled.div`
-  padding: 0.5rem;
   display: flex;
   justify-content: space-evenly;
 `;
 
 const Para = styled.p`
-  color: var(--secondary);
-  background-color: var(--primary);
+  color: black;
+  background-color: var(--third);
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0.5rem;
 `;

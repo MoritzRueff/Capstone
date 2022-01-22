@@ -1,15 +1,16 @@
 import "./App.css";
+import React, { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+
+import Footer from "./components/Footer";
+import Headline from "./components/Headline";
+import Searchbar from "./components/Searchbar";
+import SingleDogCard from "./pages/SingleDogCard";
+
 import AddDog from "./pages/AddDog";
-import DogCard from "./components/DogCard";
 import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import ShelterRegister from "./pages/ShelterRegister";
-import Footer from "./components/Footer";
-import Headline from "./components/Headline";
-import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import SearchForDogs from "./components/SearchForDog";
-import SingleDogCard from "./pages/SingleDogCard";
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -36,7 +37,7 @@ function App() {
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/ShelterRegister" element={<ShelterRegister />} />
         <Route path="/Impressum" element={<Impressum />} />
-        <Route path="/SearchForDogs" element={<SearchForDogs dogs={dogs} />} />
+        <Route path="/Searchbar" element={<Searchbar dogs={dogs} />} />
       </Routes>
       <Footer />
     </div>

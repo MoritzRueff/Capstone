@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import "../App.css";
 import { NavLink } from "react-router-dom";
-import SingleDogCard from "../pages/SingleDogCard";
 
 export default function DogCard({ dogs }) {
   return (
@@ -13,11 +12,7 @@ export default function DogCard({ dogs }) {
           <p>Breed: {dog.breed}</p>
           <p>Age: {dog.age}</p>
           <p>Gender: {dog.gender}</p>
-          <NavLink
-            to={`/dogs/${dog._id}`}
-            style={{ textDecoration: "none" }}
-            element={<SingleDogCard />}
-          >
+          <NavLink to={`/dogs/${dog._id}`} style={{ textDecoration: "none" }}>
             <Info>More Infos</Info>
           </NavLink>
         </Container>
@@ -29,21 +24,20 @@ export default function DogCard({ dogs }) {
 /* styled-components */
 
 const Container = styled.div`
-  border: 1px solid var(--primary);
+  border: 1px solid var(--third);
   border-radius: 5px;
   width: 85%;
   margin: auto;
   margin-bottom: 1rem;
+  justify-items: center;
+  background-color: var(--fourth);
 `;
 const Info = styled.button`
-  color: var(--secondary);
-  background-color: var(--primary);
+  background-color: var(--third);
   border: 1px solid black;
-  border-radius: 15px;
-  width: 50px;
+  width: 5rem;
 `;
-
 const Image = styled.img`
   width: 250px;
-  border-radius: 5px;
+  border-radius: 15px;
 `;

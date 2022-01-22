@@ -25,9 +25,9 @@ const FooterContainer = styled.footer`
   bottom: 0;
 `;
 const Para = styled.p`
-  color: var(--secondary);
-  background-color: var(--primary);
+  background-color: var(--third);
   border: 1px solid black;
-  border-radius: 10px;
-  padding: 0.3rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: #000000;
 `;
