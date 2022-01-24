@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 export default function Home({ dogs }) {
   const [filterDogs, setFilterDogs] = useState([]);
-  console.log(filterDogs);
+
   function searchDogs(findDog) {
     setFilterDogs(
       dogs.filter((item) =>
