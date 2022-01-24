@@ -4,6 +4,9 @@ import styled from "styled-components";
 export default function Footer() {
   return (
     <FooterContainer>
+      <NavLink to="/AddDog" style={{ textDecoration: "none" }}>
+        <Para> Add Dog</Para>
+      </NavLink>
       <NavLink to="/" style={{ textDecoration: "none" }}>
         <Para>Home</Para>
       </NavLink>

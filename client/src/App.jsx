@@ -10,7 +10,8 @@ import SingleDogCard from "./pages/SingleDogCard";
 import AddDog from "./pages/AddDog";
 import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
-import ShelterRegister from "./pages/ShelterRegister";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -35,7 +36,8 @@ function App() {
         <Route path="/" element={<Home dogs={dogs} />} />
         <Route path="/AddDog" element={<AddDog />} />
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
-        <Route path="/ShelterRegister" element={<ShelterRegister />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/Impressum" element={<Impressum />} />
         <Route path="/Searchbar" element={<Searchbar dogs={dogs} />} />
       </Routes>

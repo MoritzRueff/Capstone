@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import DogRoutes from "./routes/dogs.routes.js";
+import UserRoutes from "./routes/users.routes.js";
 import { dirname } from "./lib/pathHelpers.js";
 dotenv.config();
 
@@ -24,7 +25,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-server.use("/api", [DogRoutes]);
+server.use("/api", [DogRoutes, UserRoutes]);
 server.use(express.static(path.join(__dirname, "./client/dist")));
 
 server.get("/*", function (req, res) {
