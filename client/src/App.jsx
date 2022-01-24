@@ -14,7 +14,7 @@ import ShelterRegister from "./pages/ShelterRegister";
 
 function App() {
   const [dogs, setDogs] = useState([]);
-  console.log(dogs);
+
   useEffect(() => {
     async function fetchDogs() {
       try {

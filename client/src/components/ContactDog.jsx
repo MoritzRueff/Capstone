@@ -31,7 +31,7 @@ const ContactDog = () => {
     e.target.reset();
   };
   return (
-    <Container>
+    <div>
       <Form onSubmit={handleOnSubmit}>
         <Form.Field
           id="form-input-control-email"
@@ -61,7 +61,7 @@ const ContactDog = () => {
           Apply
         </ButtonB>
       </Form>
-    </Container>
+    </div>
   );
 };
 export default ContactDog;
