@@ -7,12 +7,12 @@ function Headline() {
     <NavLink to="/" style={{ textDecoration: "none" }}>
       <Head>
         <Container>
-          <NavLink to="/AddDog" style={{ textDecoration: "none" }}>
-            <Para> Add Dog</Para>
-          </NavLink>
           {/* <IdefixImg src={logo} alt="Logo" /> */}
+          <NavLink to="/Register" style={{ textDecoration: "none" }}>
+            <Para>Register </Para>
+          </NavLink>
           <Head1>Idefix</Head1>
-          <NavLink to="/ShelterRegister" style={{ textDecoration: "none" }}>
+          <NavLink to="/Login" style={{ textDecoration: "none" }}>
             <Para>Login </Para>
           </NavLink>
         </Container>
@@ -37,6 +37,7 @@ const IdefixImg = styled.img`
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
 `;
 const Para = styled.p`
   color: black;
