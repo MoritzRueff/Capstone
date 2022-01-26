@@ -17,7 +17,7 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword && isUserValid(user)) {
+    if (password !== confirmPassword) {
       alert("Passwords do not match");
     } else {
       alert("New user registrated");
@@ -28,7 +28,7 @@ export default function Register() {
             "Content-type": "application/json",
           },
         };
-        const { data } = await axios.post(
+        const { regData } = await axios.post(
           "http://localhost:4000/api/user",
           {
             email,
@@ -37,7 +37,8 @@ export default function Register() {
           },
           config
         );
-        localStorage.setItem("userInfo", JSON.stringify(data));
+        console.log(regData);
+        localStorage.setItem("userInfo", JSON.stringify(regData));
       } catch (error) {
         alert("Oops, something is wrong! " + error.message);
       }
@@ -52,6 +53,7 @@ export default function Register() {
           <h3>Register as shelter</h3>
           <label>E-Mail</label>
           <input
+            required
             type="email"
             value={email}
             onChange={(e) => {
@@ -60,6 +62,7 @@ export default function Register() {
           />
           <label>Name</label>
           <input
+            required
             type="name"
             value={name}
             onChange={(e) => {
@@ -68,6 +71,7 @@ export default function Register() {
           />
           <label>Password</label>
           <input
+            required
             type="password"
             value={password}
             onChange={(e) => {
@@ -76,6 +80,7 @@ export default function Register() {
           />
           <label>Confirm Password</label>
           <input
+            required
             type="password"
             value={confirmPassword}
             onChange={(e) => {

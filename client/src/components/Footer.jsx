@@ -13,13 +13,16 @@ export default function Footer() {
       <NavLink to="/Impressum" style={{ textDecoration: "none" }}>
         <Para>Impressum</Para>
       </NavLink>
-      <BtnLogout
-        onClick={() => {
-          localStorage.removeItem("userInfo");
-        }}
-      >
-        Logout
-      </BtnLogout>
+      <NavLink to="/" style={{ textDecoration: "none" }}>
+        <Para
+          onClick={() => {
+            localStorage.removeItem("userInfo");
+            alert("Succesfully logged out");
+          }}
+        >
+          Logout
+        </Para>
+      </NavLink>
     </FooterContainer>
   );
 }
@@ -35,16 +38,6 @@ const FooterContainer = styled.footer`
   bottom: 0;
 `;
 const Para = styled.p`
-  background-color: var(--third);
-  border: 1px solid black;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  color: #000000;
-  font-family: "ObelixPro";
-  font-size: 10px;
-`;
-
-const BtnLogout = styled.button`
   background-color: var(--third);
   border: 1px solid black;
   border-radius: 0.5rem;

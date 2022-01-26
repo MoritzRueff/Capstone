@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import User from "../../server/models/user.model";
 
 function App() {
   const [dogs, setDogs] = useState([]);
