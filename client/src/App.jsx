@@ -36,6 +36,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home dogs={dogs} />} />
         <Route path="/Profile" element={<Profile />} />
+        {/* 
+        {login.username === "name" && login.password === "password" && (
+          <Route exact path="/compose" component={Compose} />
+        )} */}
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />

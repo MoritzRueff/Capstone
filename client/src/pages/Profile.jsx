@@ -32,7 +32,7 @@ export default function Profile() {
             "Content-type": "application/json",
           },
         };
-        const { regData } = await axios.post(
+        const { regDog } = await axios.post(
           "http://localhost:4000/api/dogs",
           {
             name,
@@ -45,7 +45,7 @@ export default function Profile() {
           },
           config
         );
-        console.log(regData);
+        console.log(regDog);
       } catch (error) {
         alert("Oops, something is wrong! " + error.message);
       }
@@ -53,11 +53,11 @@ export default function Profile() {
   };
 
   return (
-    <div>
+    <Container>
       <h2>Profile page</h2>
       {/* <p>Welcome {oneUser.name}</p> */}
       <h3>Add new dog</h3>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
           required
@@ -86,14 +86,19 @@ export default function Profile() {
           }}
         />
         <label>Gender</label>
-        <input
+        <select
+          id="gender"
           required
           type="name"
           value={gender}
           onChange={(e) => {
             setGender(e.target.value);
           }}
-        />
+        >
+          {" "}
+          <option value="female">female</option>
+          <option value="male">male</option>
+        </select>
         <label>Size</label>
         <input
           required
@@ -122,13 +127,22 @@ export default function Profile() {
           }}
         />
         <AddDogBtn>Add new dog to database</AddDogBtn>
-      </form>
-    </div>
+      </Form>
+    </Container>
   );
 }
 
 /* styled-components */
 
+const Container = styled.div`
+  justify-content: center;
+`;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+`;
 const AddDogBtn = styled.button`
   color: black;
   background-color: var(--third);

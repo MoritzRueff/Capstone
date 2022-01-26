@@ -45,7 +45,7 @@ export default function Login() {
   return (
     <Container>
       <div>
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <h3>Login as shelter</h3>
           <label>E-Mail</label>
           <input
@@ -66,7 +66,7 @@ export default function Login() {
             }}
           />
           <RegisterButtons>Login</RegisterButtons>
-        </form>
+        </Form>
       </div>
     </Container>
   );
@@ -83,6 +83,9 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+const Form = styled.form`
+  display: row;
+`;
 const RegisterButtons = styled.button`
   color: black;
   background-color: var(--third);
