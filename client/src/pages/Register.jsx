@@ -1,44 +1,103 @@
 import { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import "../App.css";
+import isUserValid from "../lib/validation";
 
-export default function Register({ setToken }) {
-  const [userMail, setUserMail] = useState("");
+import axios from "axios";
+import "../App.css";
+import { useNavigate } from "react-router-dom";
+
+export default function Register() {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await loginUser({
-      userMail,
-      password,
-    });
-    setToken(token);
+    if (password !== confirmPassword && isUserValid(user)) {
+      alert("Passwords do not match");
+    } else {
+      alert("New user registrated");
+      navigate("/profile");
+      try {
+        const config = {
+          headers: {
+            "Content-type": "application/json",
+          },
+        };
+        const { data } = await axios.post(
+          "http://localhost:4000/api/user",
+          {
+            email,
+            name,
+            password,
+          },
+          config
+        );
+        localStorage.setItem("userInfo", JSON.stringify(data));
+      } catch (error) {
+        alert("Oops, something is wrong! " + error.message);
+      }
+    }
   };
 
   return (
     <Container>
       <div>
-        <h3>Registration as shelter</h3>
-        <label>E-Mail</label>
-        <input type="text" />
-        <label>Password</label>
-        <input type="text" />
-        <RegisterButtons>Register</RegisterButtons>
+        {/*   {error && } */}
+        <form onSubmit={handleSubmit}>
+          <h3>Register as shelter</h3>
+          <label>E-Mail</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <label>Name</label>
+          <input
+            type="name"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+            }}
+          />
+          <RegisterButtons>Register</RegisterButtons>
+        </form>
       </div>
     </Container>
   );
 }
 
-Register.propTypes = {
+/* Register.propTypes = {
   setToken: PropTypes.func.isRequired,
 };
-
+ */
 /* styled-components */
 
 const Container = styled.div`
   display: flex;
-  align-content: center;
+  justify-content: center;
 `;
 
 const RegisterButtons = styled.button`
