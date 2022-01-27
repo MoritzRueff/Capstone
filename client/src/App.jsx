@@ -12,7 +12,6 @@ import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [dogs, setDogs] = useState([]);

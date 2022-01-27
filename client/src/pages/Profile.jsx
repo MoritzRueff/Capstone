@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../App.css";
 import styled from "styled-components";
@@ -56,7 +56,6 @@ export default function Profile() {
   return (
     <Container>
       <h2>Profile page</h2>
-      {/* <p>Welcome {oneUser.name}</p> */}
       <h3>Add new dog</h3>
       <Form onSubmit={handleSubmit}>
         <label>Name</label>

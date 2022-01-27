@@ -4,9 +4,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import PropTypes from "prop-types";
-import Profile from "./Profile";
-
-// import ProtectedRoute from "../components/ProtectedRoute";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -79,10 +76,6 @@ export default function Login() {
     </Container>
   );
 }
-
-/* Login.propTypes = {
-  setToken: PropTypes.func.isRequired,
-}; */
 
 /* styled-components */
 
