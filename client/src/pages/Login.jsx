@@ -3,7 +3,6 @@ import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-
 import PropTypes from "prop-types";
 
 export default function Login() {
@@ -28,7 +27,7 @@ export default function Login() {
         },
       };
 
-      const { data } = await axios.post(
+      const { loginData } = await axios.post(
         "http://localhost:4000/api/login",
         {
           email,
@@ -36,8 +35,8 @@ export default function Login() {
         },
         config
       );
-      console.log(data);
-      localStorage.setItem("userInfo", JSON.stringify(data));
+      console.log(loginData);
+      localStorage.setItem("userInfo", JSON.stringify(loginData));
     } catch (error) {
       alert("Oops, email or password not correct! " + error.message);
     }
@@ -46,11 +45,11 @@ export default function Login() {
   return (
     <Container>
       <div>
-        {/*   {error && } */}
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <h3>Login as shelter</h3>
           <label>E-Mail</label>
           <input
+            required
             type="email"
             value={email}
             onChange={(e) => {
@@ -59,6 +58,7 @@ export default function Login() {
           />
           <label>Password</label>
           <input
+            required
             type="password"
             value={password}
             onChange={(e) => {
@@ -66,7 +66,7 @@ export default function Login() {
             }}
           />
           <RegisterButtons>Login</RegisterButtons>
-        </form>
+        </Form>
       </div>
     </Container>
   );
@@ -83,6 +83,9 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+const Form = styled.form`
+  display: row;
+`;
 const RegisterButtons = styled.button`
   color: black;
   background-color: var(--third);

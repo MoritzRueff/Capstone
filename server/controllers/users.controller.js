@@ -8,7 +8,7 @@ const registerUser = async (req, res) => {
 
   if (userExists) {
     res.status(400);
-    alert("User already exists");
+    console.log("User already exists");
   }
   const user = await User.create({
     name,
@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
     });
   } else {
     res.status(400);
-    alert("Error occured");
+    console.log("Error occured");
   }
 };
 

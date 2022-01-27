@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import User from "../../server/models/user.model";
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -35,6 +36,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home dogs={dogs} />} />
         <Route path="/Profile" element={<Profile />} />
+        {/* 
+        {login.username === "name" && login.password === "password" && (
+          <Route exact path="/compose" component={Compose} />
+        )} */}
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />

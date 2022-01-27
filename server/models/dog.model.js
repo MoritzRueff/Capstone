@@ -5,7 +5,7 @@ const dogScheme = new mongoose.Schema({
   breed: String,
   age: Number,
   gender: String,
-  /* size: String, */
+  size: String,
   image: String,
   location: String,
 });
