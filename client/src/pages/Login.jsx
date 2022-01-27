@@ -1,64 +1,86 @@
-import { useState } from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
 import "../App.css";
+import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import axios from "axios";
 
-async function Login(credentials) {
-  return fetch("http://localhost:4000/api/user", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
-}
+import PropTypes from "prop-types";
 
-export default function Register({ setToken }) {
-  const [userMail, setUserMail] = useState("");
+export default function Login() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate("");
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      navigate("/profile");
+      console.log(userInfo);
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await loginUser({
-      userMail,
-      password,
-    });
-    setToken(token);
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+
+      const { data } = await axios.post(
+        "http://localhost:4000/api/login",
+        {
+          email,
+          password,
+        },
+        config
+      );
+      console.log(data);
+      localStorage.setItem("userInfo", JSON.stringify(data));
+    } catch (error) {
+      alert("Oops, email or password not correct! " + error.message);
+    }
   };
 
   return (
     <Container>
       <div>
-        <h3>Login as shelter</h3>
-        <label>E-Mail</label>
-        <input
-          type="text"
-          onChange={(e) => {
-            setUserMail(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <RegisterButtons>Login</RegisterButtons>
+        {/*   {error && } */}
+        <form onSubmit={handleSubmit}>
+          <h3>Login as shelter</h3>
+          <label>E-Mail</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <RegisterButtons>Login</RegisterButtons>
+        </form>
       </div>
     </Container>
   );
 }
 
-Login.propTypes = {
+/* Login.propTypes = {
   setToken: PropTypes.func.isRequired,
-};
+}; */
 
 /* styled-components */
 
 const Container = styled.div`
   display: flex;
-  align-content: center;
+  justify-content: center;
 `;
 
 const RegisterButtons = styled.button`

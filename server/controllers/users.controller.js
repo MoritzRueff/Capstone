@@ -8,7 +8,7 @@ const registerUser = async (req, res) => {
 
   if (userExists) {
     res.status(400);
-    throw new Error("User already exists");
+    alert("User already exists");
   }
   const user = await User.create({
     name,
@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Error occured");
+    alert("Error occured");
   }
 };
 
@@ -42,7 +42,7 @@ const authUser = async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Invalid Email or Password !");
+    console.log("Invalid Email or Password !");
   }
 };
 
