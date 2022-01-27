@@ -1,22 +1,25 @@
 import "../App.css";
-import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import PropTypes from "prop-types";
+import Profile from "./Profile";
+
+// import ProtectedRoute from "../components/ProtectedRoute";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate("");
+  const [error, setError] = useState({ value: "" });
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
     if (userInfo) {
       navigate("/profile");
-      console.log(userInfo);
     }
-  }, [navigate]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +30,7 @@ export default function Login() {
         },
       };
 
-      const { loginData } = await axios.post(
+      const { data } = await axios.post(
         "http://localhost:4000/api/login",
         {
           email,
@@ -35,8 +38,13 @@ export default function Login() {
         },
         config
       );
-      console.log(loginData);
-      localStorage.setItem("userInfo", JSON.stringify(loginData));
+
+      if (data.token && data.token !== "") {
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigate("/profile");
+      } else {
+        throw new Error("Could not authenticate user.");
+      }
     } catch (error) {
       alert("Oops, email or password not correct! " + error.message);
     }

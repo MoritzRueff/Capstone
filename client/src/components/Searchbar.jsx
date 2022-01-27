@@ -7,7 +7,6 @@ export default function Searchbar({ dogs, onFilter }) {
   function handleClick() {
     onFilter(findDog);
   }
-  console.log(findDog.name);
   return (
     <Container>
       <SearchButton

@@ -5,10 +5,6 @@ import styled from "styled-components";
 import axios from "axios";
 
 export default function Profile() {
-  /* const { userId } = useParams();
-
-  const oneUser = users.find((user) => user._id === userId); */
-
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [age, setAge] = useState("");
@@ -18,6 +14,11 @@ export default function Profile() {
   const [location, setLocation] = useState("");
 
   const navigate = useNavigate("");
+  const userInfo = localStorage.getItem("userInfo");
+  if (!userInfo) {
+    navigate("/login");
+    return false;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -116,6 +117,7 @@ export default function Profile() {
           onChange={(e) => {
             setImage(e.target.value);
           }}
+          placeholder="please only per url"
         />
         <label>Location</label>
         <input
