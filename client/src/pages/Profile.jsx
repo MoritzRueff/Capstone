@@ -151,15 +151,15 @@ const Form = styled.form`
   display: block;
   margin: 1vw;
   padding: 0.5rem;
-  width: 50%;
+  width: 65%;
   border: 0;
   border: 1px solid black;
 `;
 
 const Formminput = styled.input`
   display: block;
-  width: 96%;
-  padding: 0.5rem;
+  width: 97%;
+  padding: 0.2rem;
   border: 0;
   border-radius: 5px;
   font-size: 20px;

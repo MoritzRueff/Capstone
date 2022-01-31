@@ -16,6 +16,7 @@ export default function Home({ dogs }) {
       )
     );
   }
+  console.log(filterDogs);
   return (
     <div>
       {/* <Container>
