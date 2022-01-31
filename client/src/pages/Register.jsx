@@ -47,46 +47,50 @@ export default function Register() {
   return (
     <Container>
       <div>
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <h3>Register as shelter</h3>
-          <label>E-Mail</label>
-          <input
+          <Formlabel>E-Mail</Formlabel>
+          <Formminput
             required
             type="email"
+            placeholder="examplemail@mail.com"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
-          <label>Name</label>
-          <input
+          <Formlabel>Name</Formlabel>
+          <Formminput
             required
             type="name"
+            placeholder="Example Shelter Munich"
             value={name}
             onChange={(e) => {
               setName(e.target.value);
             }}
           />
-          <label>Password</label>
-          <input
+          <Formlabel>Password</Formlabel>
+          <Formminput
             required
             type="password"
+            placeholder="password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-          <label>Confirm Password</label>
-          <input
+          <Formlabel>Confirm Password</Formlabel>
+          <Formminput
             required
             type="password"
+            placeholder="password"
             value={confirmPassword}
             onChange={(e) => {
               setConfirmPassword(e.target.value);
             }}
           />
           <RegisterButtons>Register</RegisterButtons>
-        </form>
+        </Form>
       </div>
     </Container>
   );
@@ -97,6 +101,30 @@ export default function Register() {
 const Container = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const Form = styled.form`
+  display: block;
+  padding: 0.5rem;
+  margin: 0.9vw 0;
+  border: 0;
+`;
+
+const Formminput = styled.input`
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.9vw 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+`;
+
+const Formlabel = styled.label`
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 0 2vh 0;
 `;
 
 const RegisterButtons = styled.button`

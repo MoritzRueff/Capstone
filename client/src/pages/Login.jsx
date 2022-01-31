@@ -14,7 +14,7 @@ export default function Login() {
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
     if (userInfo) {
-      navigate("/profile");
+      navigate("/shelter");
     }
   }, []);
 
@@ -38,7 +38,7 @@ export default function Login() {
 
       if (data.token && data.token !== "") {
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate("/profile");
+        navigate("/shelter");
       } else {
         throw new Error("Could not authenticate user.");
       }
@@ -52,19 +52,21 @@ export default function Login() {
       <div>
         <Form onSubmit={handleSubmit}>
           <h3>Login as shelter</h3>
-          <label>E-Mail</label>
-          <input
+          <Formlabel>E-Mail</Formlabel>
+          <Formminput
             required
             type="email"
+            placeholder="examplemail@mail.com"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
-          <label>Password</label>
-          <input
+          <Formlabel>Password</Formlabel>
+          <Formminput
             required
             type="password"
+            placeholder="password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
@@ -85,8 +87,29 @@ const Container = styled.div`
 `;
 
 const Form = styled.form`
-  display: row;
+  display: block;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border: 0;
 `;
+
+const Formlabel = styled.label`
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 0 2vh 0;
+`;
+
+const Formminput = styled.input`
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.9vw 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+`;
+
 const RegisterButtons = styled.button`
   color: black;
   background-color: var(--third);

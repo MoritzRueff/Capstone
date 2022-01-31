@@ -1,6 +1,6 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import { Form, Input, TextArea, Button } from "semantic-ui-react";
+import { Input, TextArea } from "semantic-ui-react";
 import Swal from "sweetalert2";
 import styled from "styled-components";
 
@@ -31,45 +31,74 @@ const ContactDog = () => {
     e.target.reset();
   };
   return (
-    <div>
-      <Form onSubmit={handleOnSubmit}>
-        <Form.Field
-          id="form-input-control-email"
+    <Container>
+      <ContactForm onSubmit={handleOnSubmit}>
+        <FormLabel>E-Mail</FormLabel>
+        <ContInput
           control={Input}
           label="Email"
           name="user_email"
           placeholder="Email…"
           required
         />
-        <Form.Field
-          id="form-input-control-last-name"
+        <FormLabel>Name</FormLabel>
+        <ContInput
           control={Input}
           label="Name"
           name="user_name"
           placeholder="Name…"
           required
         />
-        <Form.Field
-          id="form-textarea-control-opinion"
+        <FormLabel>Your Message</FormLabel>
+        <ContInput
           control={TextArea}
           label="Message"
           name="user_message"
           placeholder="Message…"
           required
         />
-        <ButtonB type="submit" color="green">
+        <Button type="submit" color="green">
           Apply
-        </ButtonB>
-      </Form>
-    </div>
+        </Button>
+      </ContactForm>
+    </Container>
   );
 };
 export default ContactDog;
 
 /* styled-components */
 
-const ButtonB = styled.button`
+const Button = styled.button`
   background-color: var(--third);
   border: 1px solid black;
   width: 5rem;
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ContactForm = styled.form`
+  display: block;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border: 0;
+`;
+
+const ContInput = styled.input`
+  display: block;
+  width: 50%%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+`;
+
+const FormLabel = styled.label`
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 0 2vh 0;
 `;
