@@ -5,14 +5,13 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Headline from "./components/Headline";
 import Searchbar from "./components/Searchbar";
-import SingleDogCard from "./pages/SingleDogCard";
 
+import SingleDogCard from "./pages/SingleDogCard";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import User from "../../server/models/user.model";
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -35,14 +34,10 @@ function App() {
       <Headline title="Idefix" />
       <Routes>
         <Route path="/" element={<Home dogs={dogs} />} />
-        <Route path="/Profile" element={<Profile />} />
-        {/* 
-        {login.username === "name" && login.password === "password" && (
-          <Route exact path="/compose" component={Compose} />
-        )} */}
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/Impressum" element={<Impressum />} />
         <Route path="/Searchbar" element={<Searchbar dogs={dogs} />} />
       </Routes>

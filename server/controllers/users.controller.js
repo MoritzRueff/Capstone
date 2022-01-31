@@ -7,8 +7,7 @@ const registerUser = async (req, res) => {
   const userExists = await User.findOne({ email });
 
   if (userExists) {
-    res.status(400);
-    console.log("User already exists");
+    res.status(400).json({ sucess: false, message: "User already exists" });
   }
   const user = await User.create({
     name,
@@ -24,8 +23,8 @@ const registerUser = async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(400);
     console.log("Error occured");
+    res.status(400).json({ succes: false, message: "Error occured" });
   }
 };
 
@@ -41,8 +40,10 @@ const authUser = async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(400);
     console.log("Invalid Email or Password !");
+    res
+      .status(400)
+      .json({ success: false, message: "Invalid Email or Password !" });
   }
 };
 

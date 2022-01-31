@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import isUserValid from "../lib/validation";
 
 import axios from "axios";
 import "../App.css";
@@ -48,7 +47,6 @@ export default function Register() {
   return (
     <Container>
       <div>
-        {/*   {error && } */}
         <form onSubmit={handleSubmit}>
           <h3>Register as shelter</h3>
           <label>E-Mail</label>
@@ -94,10 +92,6 @@ export default function Register() {
   );
 }
 
-/* Register.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};
- */
 /* styled-components */
 
 const Container = styled.div`
