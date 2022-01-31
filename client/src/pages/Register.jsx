@@ -20,7 +20,7 @@ export default function Register() {
       alert("Passwords do not match");
     } else {
       alert("New user registrated");
-      navigate("/shelter");
+      navigate("/profile");
       try {
         const config = {
           headers: {
