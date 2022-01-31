@@ -14,7 +14,7 @@ export default function Login() {
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
     if (userInfo) {
-      navigate("/shelter");
+      navigate("/profile");
     }
   }, []);
 
@@ -38,7 +38,7 @@ export default function Login() {
 
       if (data.token && data.token !== "") {
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate("/shelter");
+        navigate("/profile");
       } else {
         throw new Error("Could not authenticate user.");
       }

@@ -7,7 +7,7 @@ import Headline from "./components/Headline";
 import Searchbar from "./components/Searchbar";
 
 import SingleDogCard from "./pages/SingleDogCard";
-import Shelter from "./pages/Shelter";
+import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import Login from "./pages/Login";
@@ -37,7 +37,7 @@ function App() {
         <Route path="/dogs/:dogId" element={<SingleDogCard dogs={dogs} />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Shelter" element={<Shelter />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/Impressum" element={<Impressum />} />
         <Route path="/Searchbar" element={<Searchbar dogs={dogs} />} />
       </Routes>

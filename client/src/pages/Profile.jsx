@@ -4,7 +4,7 @@ import "../App.css";
 import styled from "styled-components";
 import axios from "axios";
 
-export default function Shelter() {
+export default function Profile() {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [age, setAge] = useState("");
