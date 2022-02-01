@@ -34,7 +34,7 @@ export default function Profile() {
           },
         };
         const { regDog } = await axios.post(
-          "http://localhost:4000/api/dogs",
+          "/api/dogs",
           {
             name,
             breed,

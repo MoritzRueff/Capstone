@@ -18,7 +18,7 @@ export default function Home({ dogs }) {
   }
   console.log(filterDogs);
   return (
-    <div>
+    <Container>
       {/* <Container>
         <NavLink to="/AddDog" style={{ textDecoration: "none" }}>
           <Para> Add Dog</Para>
@@ -29,7 +29,7 @@ export default function Home({ dogs }) {
       </Container> */}
       <Searchbar dogs={dogs} onFilter={searchDogs} />
       <DogCard dogs={dogs} />
-    </div>
+    </Container>
   );
 }
 
@@ -38,8 +38,7 @@ export default function Home({ dogs }) {
 /* styled-components */
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+  padding: 0.5rem;
 `;
 
 const Para = styled.p`
