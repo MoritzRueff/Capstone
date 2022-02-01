@@ -28,6 +28,12 @@ const registerUser = async (req, res) => {
   }
 };
 
+const getAllUser = async (req, res) => {
+  const user = await User.find();
+
+  res.json(user);
+};
+
 const authUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -82,4 +88,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-export { deleteUser, authUser, getUser, registerUser, updateUser };
+export { deleteUser, authUser, getUser, registerUser, updateUser, getAllUser };
