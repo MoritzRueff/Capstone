@@ -28,7 +28,7 @@ export default function Register() {
           },
         };
         const { regData } = await axios.post(
-          "http://localhost:4000/api/user",
+          "/api/user",
           {
             email,
             name,
