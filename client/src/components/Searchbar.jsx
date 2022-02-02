@@ -3,18 +3,24 @@ import styled from "styled-components";
 
 export default function Searchbar({ dogs, onFilter }) {
   const [findDog, setFindDog] = useState("");
-  const [BtnActive, setBtnActive] = useState(false);
+
+  /* const sortedDogNames = dogs.sort((a, b) => {
+    if (a.name < b.name) return -1;
+    return 1;
+  });
+
+  const searchedDog = sortedDogNames.filter((dog) =>
+    findDog !== "" && dog.name
+      ? dog.name.toLowerCase().includes(findDog.toLowerCase())
+      : true
+  ); */
+
   function handleClick() {
     onFilter(findDog);
   }
   return (
     <Container>
-      <SearchButton
-        onClick={handleClick}
-        className={BtnActive ? "inactive" : "active"}
-      >
-        Search for dog
-      </SearchButton>
+      <SearchButton onClick={handleClick}>Search for dog</SearchButton>
       <div>
         <input
           className="searchinput"

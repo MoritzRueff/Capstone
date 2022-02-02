@@ -16,35 +16,25 @@ export default function Home({ dogs }) {
       )
     );
   }
-  console.log(filterDogs);
+
+  const renderCorrectDogCard = () => {
+    if (filterDogs.length > 0) {
+      return <DogCard dogs={filterDogs} />;
+    } else if (dogs) {
+      return <DogCard dogs={dogs} />;
+    }
+  };
+
   return (
     <Container>
-      {/* <Container>
-        <NavLink to="/AddDog" style={{ textDecoration: "none" }}>
-          <Para> Add Dog</Para>
-        </NavLink>
-        <NavLink to="/ShelterRegister" style={{ textDecoration: "none" }}>
-          <Para>Register as shelter / Login</Para>
-        </NavLink>
-      </Container> */}
       <Searchbar dogs={dogs} onFilter={searchDogs} />
-      <DogCard dogs={dogs} />
+      {renderCorrectDogCard()}
     </Container>
   );
 }
 
-// DogCard anzeigen wenn filterDogs leer ist, sont nur filter dogs
-
 /* styled-components */
 
 const Container = styled.div`
-  padding: 0.5rem;
-`;
-
-const Para = styled.p`
-  color: black;
-  background-color: var(--third);
-  border: 1px solid black;
-  border-radius: 5px;
   padding: 0.5rem;
 `;
